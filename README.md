@@ -12,7 +12,10 @@ The setup we’ll be creating is just a foundation you can expand on. It won’t
 If you’re just interested in the end result, skip ahead to Putting everything together.
 
 ## Initial step:
-- vagrant init hashicorp/precise64
-- vagrant up
-- vagrant ssh
-- vagrant destroy -f
+- ``` vagrant init hashicorp/precise64 ```
+- ``` vagrant up ```
+- ``` vagrant ssh ```
+- ``` vagrant destroy -f ```
+
+# Links:
+- [Basic multi-machine with ansible](basic-ansible/Vagrantfile)

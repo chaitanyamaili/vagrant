@@ -1,0 +1,19 @@
+---
+- hosts: all
+  name: Install necessary packages.
+  become: yes
+  vars:
+    server_root_path: "/var/www/html"
+  tasks:
+  - name: Install apache.
+    apt: name=apache2 state=present
+    notify:
+      - restart apache2
+  - name: Copy the custom index packages.
+    copy: src=files/info.html dest={{ server_root_path }}/info.html
+  - name: Template pages.
+    template: src=files/info_template.html.j2 dest={{ server_root_path }}/info_template.html
+
+  handlers:
+  - name: restart apache2
+    service: name=apache2 state=restarted
